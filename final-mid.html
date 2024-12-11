@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General styles */
+        body {
+            background-color: #2b2b2b;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(120deg, #1a1d23, #3a3f4b);
+            padding: 20px 50px;
+            text-align: center;
+            color: aliceblue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: white;
+            display: inline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        .search-container input[type="search"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            margin-right: 5px;
+            width: 300px;
+        }
+
+        .search-container button {
+            padding: 10px;
+            background-color: #555555;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #777777;
+        }
+
+        /* Navigation styles */
+        .topnav {
+            border: #555555;
+            overflow: hidden;
+            background-color: #333333;
+            color: aliceblue;
+        }
+
+        .topnav a {
+            display: block;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: antiquewhite;
+            font-size: large;
+        }
+
+        .topnav a:hover {
+            color: #555555;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: rgb(218, 208, 253);
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            height: 350px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            float: right;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        /* Slider Styles */
+        #outerbox {
+            width: 250px;
+            margin: 10px auto;
+            background-position: center;
+            box-shadow: 10px 15px 20px;
+            border-radius: 10px;
+        }
+
+        #slidebox {
+            position: relative;
+            display: flex;
+            width: 1000px;
+            height: 250px;
+            animation: slider 30s infinite;
+        }
+
+        @keyframes slider {
+            0% { left: 0px; }
+            10% { left: -250px; }
+            20% { left: -500px; }
+            30% { left: -750px; }
+            40% { left: -1000px; }
+            50% { left: -1250px; }
+            60% { left: -1500px; }
+            70% { left: -1750px; }
+            80% { left: -2000px; }
+            100% { left: -2250px; }
+        }
+
+        #slidebox img {
+            width: 1000px;
+            height: 250px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer Styles */
+        .bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #232526;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Button Styles */
+        .open-modal {
+            padding: 10px 15px;
+            background-color: none;
+            color: white;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+        }
+
+        .open-modal:hover {
+            background-color: none;
+        }
+
+        button[type="log-in"], button[type="Register"], button[type="submit"] {
+            background-color: lawngreen;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #888;
+        }
+
+        .label {
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="360_F_169375330_ec1Xv9kLUPs9JxVwq9Fiq0QGpQQVZY24.jpg" alt="Logo">
+        <h1><span style="color: blue;">Tecno</span> <span style="color: #555555;">Zone</span></h1>
+        <div class="search-container">
+            <input type="search" id="search" placeholder="search..." size="30px">
+            <button type="submit">Search</button>
+        </div>
+    </div>
+
+    <div class="topnav">
+        <a href="#">HOME</a>
+        <a href="lab7.html">PRODUCTS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#">SHOP NOW!</a>
+        <label for="modal-toggle" class="open-modal">LOG-IN</label>
+        <input type="checkbox" id="modal-toggle" class="modal-toggle">
+
+        <div class="modal">
+            <div class="modal-content">
+                <label for="modal-toggle" class="close">&times;</label>
+                <form style="color: #555555;">
+                    <center style="font-family: Arial, Helvetica, sans-serif;">
+                        <h2>LOG-IN</h2>
+                        <br><input type="text" id="username" name="username" required>
+                        <p><label for="username">Username</label></p>
+                        <br><input type="password" id="password" name="password" required>
+                        <p><label for="password">Password</label></p>
+                        <br><button type="log-in">Log-in</button>
+                    </center>
+                    <a href="register.html" style="margin-left: 70%; color: black;">Register</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="outerbox">
+        <div id="slidebox">
+            <img src="1.png">
+            <img src="2.png">
+            <img src="3.png">
+            <img src="4.png">
+            <img src="5.png">
+            <img src="6.png">
+            <img src="7.png">
+            <img src="8.png">
+            <img src="10.png">
+            <img src="9.png">
+        </div>
+    </div>
+
+    <div style="text-align: center; text-transform: uppercase; font-size: xx-large; color: white; padding: 10px;">
+        LOOKING FOR AFFORDABLE PHONE OPTIONS? <br> HERE ARE SOME TOP PICKS!
+    </div>
+
+    <div class="bottom">©2024 prinz. All Rights Reserved.</div>
+
+    <script>
+        // Modal functionality using JavaScript
+        document.querySelector('.open-modal').addEventListener('click', function () {
+            document.querySelector('.modal').style.display = 'block';
+        });
+
+        document.querySelector('.close').addEventListener('click', function () {
+            document.querySelector('.modal').style.display = 'none';
+        });
+
+        document.querySelector('.modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
